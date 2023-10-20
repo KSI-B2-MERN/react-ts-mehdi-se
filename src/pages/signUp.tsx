@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 
-function App() {
+function SignUp() {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
@@ -70,4 +70,4 @@ function App() {
   );
 }
 
-export default App;
+export default SignUp;
