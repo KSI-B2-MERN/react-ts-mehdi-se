@@ -10,8 +10,11 @@ function Navbar() {
         />
         <p className="font-bold text-black pl-5 ">Knowledge Streams</p>
         <div className="flex justify-end w-full ">
-          <button className=" flex justify-end bg-blue-500 mr-8 p-1">
-            Log in
+          <button
+            type="button"
+            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+          >
+            Sign In
           </button>
         </div>
       </div>
