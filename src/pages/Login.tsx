@@ -1,7 +1,14 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+  const navigate = useNavigate();
+  const redirectToSignUp = () => {
+    // Use the `navigate` function to go to the sign-up page
+    navigate("/signup");
+  };
+
   const [email, setemail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
@@ -55,6 +62,15 @@ function Login() {
               }}
             />
           </div>
+          <p>
+            Not Register yet...
+            <input
+              className="text-red-950 font-bold"
+              type="button"
+              value="Sign Up"
+              onClick={redirectToSignUp}
+            />
+          </p>
           <div className="w-full  flex flex-col mt-6 items-center ">
             <button
               className=" border-2 py-2 px-8 rounded-md w-72 bg-blue-500 text-white disabled:bg-gray-300  focus:outline-none"

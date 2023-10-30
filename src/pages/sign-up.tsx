@@ -1,9 +1,17 @@
+import { useNavigate } from "react-router-dom";
+
 function Signup() {
+  const navigate = useNavigate();
+  const redirectToSignUp = () => {
+    // Use the `navigate` function to go to the sign-up page
+    navigate("/");
+  };
+
   return (
     <>
       <div className="h-screen w-screen text-black flex justify-center">
         <div className=" bg-blue-200 w-screen flex flex-col items-center justify-center">
-          <h1>abs</h1>
+          <h1>Sign Up</h1>
           <div className="flex flex-col">
             <label className="mt-2 ">First name</label>
             <input
@@ -12,7 +20,6 @@ function Signup() {
               placeholder="Muntazir"
               required
             />
-
             <label className="mt-2 ">Last name</label>
             <input
               className="rounded-md border-black border-2 pl-2"
@@ -20,7 +27,6 @@ function Signup() {
               type="text"
               required
             />
-
             <label className="mt-2 ">Username</label>
             <input
               className="rounded-md border-black border-2 pl-2"
@@ -28,7 +34,6 @@ function Signup() {
               type="text"
               required
             />
-
             <label className="mt-2 ">Email</label>
             <input
               className="rounded-md border-black border-2 pl-2"
@@ -36,21 +41,27 @@ function Signup() {
               type="email"
               required
             />
-
             <label className="">Password</label>
             <input
               className="rounded-md border-black border-2 pl-2"
               type="password"
               required
             />
-
             <label className="">Confirm password</label>
             <input
               className="rounded-md border-black border-2 pl-2"
               type="password"
               required
             />
-
+            <p>
+              Already Registered
+              <input
+                className=" hover:pointer text-red-950 font-bold"
+                type="button"
+                value="Login"
+                onClick={redirectToSignUp}
+              />{" "}
+            </p>
             <div className="mt-2">
               <button
                 type="button"
