@@ -2,11 +2,13 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+
+
 function Login() {
   const navigate = useNavigate();
   const redirectToSignUp = () => {
     // Use the `navigate` function to go to the sign-up page
-    navigate("/signup");
+    navigate("/");
   };
 
   const [email, setemail] = useState<string>("");
@@ -29,7 +31,7 @@ function Login() {
     });
 
     if (loginRes.data) {
-      alert("logged in successfuly");
+      // navigate("/Home");
     } else {
       alert("incorrect username/password");
     }
@@ -65,7 +67,7 @@ function Login() {
           <p>
             Not Register yet...
             <input
-              className="text-red-950 font-bold"
+              className="text-red-950 font-bold hover:cursor-pointer"
               type="button"
               value="Sign Up"
               onClick={redirectToSignUp}

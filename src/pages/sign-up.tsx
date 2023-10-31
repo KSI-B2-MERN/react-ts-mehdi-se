@@ -4,7 +4,7 @@ function Signup() {
   const navigate = useNavigate();
   const redirectToSignUp = () => {
     // Use the `navigate` function to go to the sign-up page
-    navigate("/");
+    navigate("/login");
   };
 
   return (
@@ -56,7 +56,7 @@ function Signup() {
             <p>
               Already Registered
               <input
-                className=" hover:pointer text-red-950 font-bold"
+                className=" hover:pointer text-red-950 font-bold hover:cursor-pointer"
                 type="button"
                 value="Login"
                 onClick={redirectToSignUp}
