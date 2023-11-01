@@ -1,6 +1,7 @@
-import Login from "./pages/Login";
+// import Login from "./pages/Login";
 // import Navbar from "./pages/navbar";
-import Signup from "./pages/sign-up";
+// import Signup from "./pages/sign-up";
+import SignUp from "./pages/log-in";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 
@@ -13,9 +14,10 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        {/* <Route path="/login" element={<Login />} /> */}
+        <Route path="/signup" element={<SignUp />} />
 
-        <Route path="/signup" element={<Signup />} />
+        {/* <Route path="/signup" element={<Signup />} /> */}
       </Routes>
     </>
   );
