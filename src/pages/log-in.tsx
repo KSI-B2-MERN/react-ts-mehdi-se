@@ -45,6 +45,8 @@ function SignUp() {
     if (loginRes.data) {
       alert("logged in successfuly");
     } else {
+      setUsername("");
+      setPassword("");
       alert("incorrect username/password");
     }
   };

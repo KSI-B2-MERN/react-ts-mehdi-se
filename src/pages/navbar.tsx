@@ -1,24 +1,51 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+
+type User = {
+  fName: string;
+  lName: string;
+  role: number;
+};
+
 function Navbar() {
+  const [user, setUser] = useState<User>();
+
+  const getUser = async () => {
+    const userData = await axios.get("http://localhost:3000/users/getUser", {
+      params: {
+        id: 4,
+      },
+    });
+
+    setUser(userData.data);
+  };
+  useEffect(() => {
+    void getUser();
+  }, []);
   return (
     <>
-      <div className=" w-screen bg-white h-15 pl-5 pt-2  flex justify-center items-center ">
-        <img
-          className="pl-20"
-          src="https://media.licdn.com/dms/image/C4D0BAQH0EF3lzfrlcg/company-logo_200_200/0/1674827366370/knowledge_streams_tech_logo?e=2147483647&v=beta&t=TlURYjpr_aT-SxPGi2bkfevqRTpfloz7LCLZmy7c_0s"
-          width={120}
-          alt=""
-        />
-        <p className="font-bold text-black pl-5 ">Knowledge Streams</p>
-        <div className="flex justify-end w-full ">
-          <button
-            type="button"
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-          >
-            Sign In
-          </button>
+      <div className=" w-full h-20 bg-blue-500 absolute top-0 flex">
+        <div className="w-1/2 h-full flex pl-16 items-center">
+          <p className="text-white mr-4 font-semibold text-lg">
+            Knowledge Streams
+          </p>
+          <p className="text-white ml-4 p-2 font-normal text-sm cursor-pointer border border-gray-300">
+            Visit Website
+          </p>
+        </div>
+        <div className="w-1/2 h-full flex pr-16 items-center justify-end ">
+          <div className="flex-col flex justify-center items-center h-full border-x px-4">
+            <p className="text-white mr-4 font-normal text-md">
+              {user?.fName + " " + user?.lName || "First Name"}
+            </p>
+            <p className="text-white mr-4 font-normal text-sm">
+              {user?.role == 1 ? "Intructor" : "Trainee"}
+            </p>
+          </div>
         </div>
       </div>
     </>
   );
 }
+
 export default Navbar;
